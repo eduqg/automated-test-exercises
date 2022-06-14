@@ -17,6 +17,14 @@ it('Should calculate sum of multiples of 3 or 5', () => {
     expect(result).toBe(233168);
 });
 
+it('Should calculate sum of multiples of 3 or 5 Option 2', () => {
+    const { calculateIsMultipleOf3or5Option2 } = Exercise1;
+
+    const result = calculateIsMultipleOf3or5Option2(1000);
+
+    expect(result).toBe(233168);
+});
+
 it('Should calculate sum of multiples of 3 and 5', () => {
     const { calculateIsMultipleOf3and5 } = Exercise1;
 
