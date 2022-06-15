@@ -40,3 +40,18 @@ it('Should calculate sum of multiples of (3 or 5) and 7', () => {
 
     expect(result).toBe(33173);
 });
+
+
+it('Should check value 0 if not multiple', () => {
+    const {
+        calculateIsMultipleOf3or5,
+        calculateIsMultipleOf3or5Option2,
+        calculateIsMultipleOf3and5,
+        calculateIsMultipleOf3or5and7
+    } = Exercise1;
+
+    expect(calculateIsMultipleOf3or5(0)).toBe(false);
+    expect(calculateIsMultipleOf3or5Option2(0)).toBe(false);
+    expect(calculateIsMultipleOf3and5(0)).toBe(false);
+    expect(calculateIsMultipleOf3or5and7(0)).toBe(false);
+});

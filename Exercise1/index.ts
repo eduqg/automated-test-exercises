@@ -3,6 +3,8 @@ export const isMultipleOf = (value: number, selectedMultiple: number) => {
 }
 
 export const calculateIsMultipleOf3or5 = (value: number) => {
+  if (value <= 0) return false;
+
   let total = 0;
 
   for (let i = 1; i < value; i++) {
@@ -15,6 +17,8 @@ export const calculateIsMultipleOf3or5 = (value: number) => {
 }
 
 export const calculateIsMultipleOf3or5Option2 = (value: number) => {
+  if (value <= 0) return false;
+
   const numbers = Array.from(Array(value + 1).keys());
 
   const total = numbers.reduce((partialSum, a) => {
@@ -30,6 +34,8 @@ export const calculateIsMultipleOf3or5Option2 = (value: number) => {
 }
 
 export const calculateIsMultipleOf3and5 = (value: number) => {
+  if (value <= 0) return false;
+
   let total = 0;
 
   for (let i = 1; i < value; i++) {
@@ -42,6 +48,8 @@ export const calculateIsMultipleOf3and5 = (value: number) => {
 }
 
 export const calculateIsMultipleOf3or5and7 = (value: number) => {
+  if (value <= 0) return false;
+
   let total = 0;
 
   for (let i = 1; i < value; i++) {
