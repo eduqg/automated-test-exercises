@@ -1,75 +1,67 @@
-export const isMultipleOf = (value: number, selectedMultiple: number) => {
-  return value % selectedMultiple === 0;
+export interface IExercise1 {
+  isMultipleOf: (value: number, selectedMultiple: number) => boolean;
+  calculateIsMultipleOf3or5: (value: number) => number;
+  calculateIsMultipleOf3or5Option2: (value: number) => number;
+  calculateIsMultipleOf3and5: (value: number) => number;
+  calculateIsMultipleOf3or5and7: (value: number) => number;
 }
 
-export const calculateIsMultipleOf3or5 = (value: number) => {
-  if (value <= 0) return false;
-
-  let total = 0;
-
-  for (let i = 1; i < value; i++) {
-    if (isMultipleOf(i, 3) || isMultipleOf(i, 5)) {
-      total += i;
-    }
+export class Exercise1 implements IExercise1 {
+  isMultipleOf = (value: number, selectedMultiple: number): boolean => {
+    return value % selectedMultiple === 0;
   }
 
-  return total;
-}
+  calculateIsMultipleOf3or5 = (value: number): number => {
+    let total = 0;
 
-export const calculateIsMultipleOf3or5Option2 = (value: number) => {
-  if (value <= 0) return false;
-
-  const numbers = Array.from(Array(value + 1).keys());
-
-  const total = numbers.reduce((partialSum, a) => {
-    if (isMultipleOf(a, 3) || isMultipleOf(a, 5) && a < value) {
-      return partialSum + a
+    for (let i = 1; i < value; i++) {
+      if (this.isMultipleOf(i, 3) || this.isMultipleOf(i, 5)) {
+        total += i;
+      }
     }
 
-    return partialSum;
-
-  }, 0);
-
-  return total;
-}
-
-export const calculateIsMultipleOf3and5 = (value: number) => {
-  if (value <= 0) return false;
-
-  let total = 0;
-
-  for (let i = 1; i < value; i++) {
-    if (isMultipleOf(i, 3) && isMultipleOf(i, 5)) {
-      total += i;
-    }
+    return total;
   }
 
-  return total;
-}
+  calculateIsMultipleOf3or5Option2 = (value: number): number => {
+    const numbers = Array.from(Array(value + 1).keys());
 
-export const calculateIsMultipleOf3or5and7 = (value: number) => {
-  if (value <= 0) return false;
+    const total = numbers.reduce((partialSum, a) => {
+      if (this.isMultipleOf(a, 3) || this.isMultipleOf(a, 5) && a < value) {
+        return partialSum + a
+      }
 
-  let total = 0;
+      return partialSum;
 
-  for (let i = 1; i < value; i++) {
-    if (
-      (isMultipleOf(i, 3) || isMultipleOf(i, 5))
-      && isMultipleOf(i, 7)
-    ) {
-      total += i;
-    }
+    }, 0);
+
+    return total;
   }
 
-  return total;
+  calculateIsMultipleOf3and5 = (value: number): number => {
+    let total = 0;
+
+    for (let i = 1; i < value; i++) {
+      if (this.isMultipleOf(i, 3) && this.isMultipleOf(i, 5)) {
+        total += i;
+      }
+    }
+
+    return total;
+  }
+
+  calculateIsMultipleOf3or5and7 = (value: number): number => {
+    let total = 0;
+
+    for (let i = 1; i < value; i++) {
+      if (
+        (this.isMultipleOf(i, 3) || this.isMultipleOf(i, 5))
+        && this.isMultipleOf(i, 7)
+      ) {
+        total += i;
+      }
+    }
+
+    return total;
+  }
 }
-
-console.log('A - 10) ', calculateIsMultipleOf3or5(10))
-console.log('A - 10) ', calculateIsMultipleOf3or5Option2(10))
-console.log('B - 10) ', calculateIsMultipleOf3and5(10))
-console.log('C - 10) ', calculateIsMultipleOf3or5and7(10))
-
-console.log('A - 100) ', calculateIsMultipleOf3or5(100))
-console.log('A - 100) ', calculateIsMultipleOf3or5Option2(100))
-console.log('B - 1000) ', calculateIsMultipleOf3and5(1000))
-console.log('C - 1000) ', calculateIsMultipleOf3or5and7(1000))
