@@ -18,7 +18,7 @@ export class CartCalculationService implements ICartCalculationService {
     let shippingPrice = 0;
 
     if (cartProductsPrice < 100) {
-      shippingPrice = this.mail.getShippingPrice(cart.user.zipCode);
+      shippingPrice = this.mail.getShippingPrice(cart.getUser().getZipCode());
     }
 
     return shippingPrice + cartProductsPrice;

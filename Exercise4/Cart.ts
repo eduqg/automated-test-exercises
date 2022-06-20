@@ -2,15 +2,15 @@ import { IUser } from "./User";
 import { IProduct } from "./Product";
 
 export interface ICart {
-  user: IUser;
   add: (product: IProduct) => void;
   remove: (product: IProduct) => void;
   getProducts: () => IProduct[];
+  getUser: () => IUser;
   getTotal: () => number;
 }
 
 export class Cart implements ICart {
-  user: IUser;
+  private user: IUser;
   private products: IProduct[];
 
   constructor(user: IUser, products: IProduct[]) {
@@ -30,6 +30,10 @@ export class Cart implements ICart {
     if (foundProductIndex > -1) {
       this.products.splice(foundProductIndex, 1)
     }
+  }
+
+  getUser(): IUser {
+    return this.user;
   }
 
   getProducts(): IProduct[] {

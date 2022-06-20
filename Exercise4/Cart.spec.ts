@@ -14,7 +14,7 @@ describe('Cart', () => {
   it('Should create cart', () => {
     const cart = new Cart(user, []);
 
-    expect(cart.user).toBe(user);
+    expect(cart.getUser()).toBe(user);
     expect(cart.getProducts().length).toBe(0);
   });
 

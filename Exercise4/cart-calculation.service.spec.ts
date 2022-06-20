@@ -21,7 +21,7 @@ describe('Cart calculation service', () => {
 
     const total = cartCalculationService.getCartTotal(cart);
 
-    expect(user.name).toBe('John');
+    expect(user.getName()).toBe('John');
     expect(product1.name).toBe('Celular');
     expect(product2.value).toBe(1700);
     expect(cart.getProducts().length).toBe(3);
